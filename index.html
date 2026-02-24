@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>NOXORA</title>
+
+<style>
+body{margin:0;font-family:Arial;}
+header{display:flex;justify-content:space-between;padding:20px;background:black;color:white;}
+.logo{letter-spacing:5px;}
+.products{padding:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.card{border:1px solid #eee;padding:15px;}
+.card img{width:100%;}
+button{background:black;color:white;padding:10px;border:none;cursor:pointer;width:100%;}
+.cartBtn{cursor:pointer;}
+.cartPanel{
+position:fixed;
+right:-350px;
+top:0;
+width:350px;
+height:100%;
+background:white;
+box-shadow:-3px 0 10px rgba(0,0,0,0.2);
+padding:20px;
+transition:0.3s;
+}
+.cartPanel.open{right:0;}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">NOXORA</div>
+<div class="cartBtn" onclick="toggleCart()">🛒 Sepet (<span id="count">0</span>)</div>
+</header>
+
+<section class="products">
+
+<div class="card">
+<img src="https://picsum.photos/300?1">
+<h3>Basic Tee — ₺399</h3>
+<button onclick="add(399,'Basic Tee')">Sepete ekle</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300?2">
+<h3>Sport Hoodie — ₺1199</h3>
+<button onclick="add(1199,'Sport Hoodie')">Sepete ekle</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300?3">
+<h3>Premium Jacket — ₺3999</h3>
+<button onclick="add(3999,'Premium Jacket')">Sepete ekle</button>
+</div>
+
+</section>
+
+<div class="cartPanel" id="cartPanel">
+<h2>Sepet</h2>
+<div id="items"></div>
+<h3>Toplam: ₺<span id="total">0</span></h3>
+<button onclick="checkout()">Sipariş Ver</button>
+</div>
+
+<script>
+let cart=[];
+function toggleCart(){
+document.getElementById("cartPanel").classList.toggle("open");
+}
+function add(price,name){
+cart.push({price,name});
+update();
+}
+function update(){
+document.getElementById("count").innerText=cart.length;
+let items="";
+let total=0;
+cart.forEach(i=>{
+items+=`<p>${i.name} — ₺${i.price}</p>`;
+total+=i.price;
+});
+document.getElementById("items").innerHTML=items;
+document.getElementById("total").innerText=total;
+}
+function checkout(){
+alert("Checkout yakında eklenecek 🙂");
+}
+</script>
+
+</body>
+</html>
