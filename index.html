@@ -1,93 +1,48 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>NOXORA</title>
-
-<style>
-body{margin:0;font-family:Arial;}
-header{display:flex;justify-content:space-between;padding:20px;background:black;color:white;}
-.logo{letter-spacing:5px;}
-.products{padding:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
-.card{border:1px solid #eee;padding:15px;}
-.card img{width:100%;}
-button{background:black;color:white;padding:10px;border:none;cursor:pointer;width:100%;}
-.cartBtn{cursor:pointer;}
-.cartPanel{
-position:fixed;
-right:-350px;
-top:0;
-width:350px;
-height:100%;
-background:white;
-box-shadow:-3px 0 10px rgba(0,0,0,0.2);
-padding:20px;
-transition:0.3s;
-}
-.cartPanel.open{right:0;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Clothing Store</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-<header>
-<div class="logo">NOXORA</div>
-<div class="cartBtn" onclick="toggleCart()">🛒 Sepet (<span id="count">0</span>)</div>
-</header>
-
-<section class="products">
-
-<div class="card">
-<img src="https://picsum.photos/300?1">
-<h3>Basic Tee — ₺399</h3>
-<button onclick="add(399,'Basic Tee')">Sepete ekle</button>
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/300?2">
-<h3>Sport Hoodie — ₺1199</h3>
-<button onclick="add(1199,'Sport Hoodie')">Sepete ekle</button>
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/300?3">
-<h3>Premium Jacket — ₺3999</h3>
-<button onclick="add(3999,'Premium Jacket')">Sepete ekle</button>
-</div>
-
-</section>
-
-<div class="cartPanel" id="cartPanel">
-<h2>Sepet</h2>
-<div id="items"></div>
-<h3>Toplam: ₺<span id="total">0</span></h3>
-<button onclick="checkout()">Sipariş Ver</button>
-</div>
-
-<script>
-let cart=[];
-function toggleCart(){
-document.getElementById("cartPanel").classList.toggle("open");
-}
-function add(price,name){
-cart.push({price,name});
-update();
-}
-function update(){
-document.getElementById("count").innerText=cart.length;
-let items="";
-let total=0;
-cart.forEach(i=>{
-items+=`<p>${i.name} — ₺${i.price}</p>`;
-total+=i.price;
-});
-document.getElementById("items").innerHTML=items;
-document.getElementById("total").innerText=total;
-}
-function checkout(){
-alert("Checkout yakında eklenecek 🙂");
-}
-</script>
-
+    <header>
+        <h1>Welcome to Our Clothing Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Featured Products</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product">
+                <h3>Product 1</h3>
+                <p>Description of Product 1</p>
+                <p>Price: $XX.XX</p>
+            </div>
+            <div class="product">
+                <h3>Product 2</h3>
+                <p>Description of Product 2</p>
+                <p>Price: $XX.XX</p>
+            </div>
+        </section>
+        <section id="categories">
+            <h2>Categories</h2>
+            <ul>
+                <li>Men’s Clothing</li>
+                <li>Women’s Clothing</li>
+                <li>Accessories</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <button id="login">Login</button>
+    </footer>
 </body>
 </html>
