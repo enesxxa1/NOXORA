@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; }
+        h1 { text-align: center; }
+        form { display: flex; flex-direction: column; }
+        input, textarea { margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        #map { width: 100%; height: 300px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p><strong>Contact Information:</strong></p>
+        <p>Email: info@example.com</p>
+        <p>Phone: +1234567890</p>
+        <div id="map"></div>
+        <p>
+            <button onclick="openChat()"><i class="fas fa-comments"></i> Live Chat</button>
+        </p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+    <script>
+        function initMap() {
+            var location = {lat: -34.397, lng: 150.644};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+        function openChat() {
+            window.open('https://example.com/livechat', '_blank');
+        }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
+</body>
+</html>
