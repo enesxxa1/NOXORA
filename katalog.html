@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; }
+        .category { flex: 1 1 30%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .product { text-align: center; margin-bottom: 15px; }
+        img { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <h1>Product Catalog</h1>
+    <div class="container">
+        <div class="category">
+            <h2>Men</h2>
+            <div class="product"><img src="men1.jpg" alt="Men's Clothing 1"><p>Men's Clothing 1</p><p>$49.99</p></div>
+            <div class="product"><img src="men2.jpg" alt="Men's Clothing 2"><p>Men's Clothing 2</p><p>$59.99</p></div>
+        </div>
+        <div class="category">
+            <h2>Women</h2>
+            <div class="product"><img src="women1.jpg" alt="Women's Clothing 1"><p>Women's Clothing 1</p><p>$39.99</p></div>
+            <div class="product"><img src="women2.jpg" alt="Women's Clothing 2"><p>Women's Clothing 2</p><p>$49.99</p></div>
+        </div>
+        <div class="category">
+            <h2>Children</h2>
+            <div class="product"><img src="children1.jpg" alt="Children's Clothing 1"><p>Children's Clothing 1</p><p>$29.99</p></div>
+            <div class="product"><img src="children2.jpg" alt="Children's Clothing 2"><p>Children's Clothing 2</p><p>$39.99</p></div>
+        </div>
+    </div>
+</body>
+</html>
